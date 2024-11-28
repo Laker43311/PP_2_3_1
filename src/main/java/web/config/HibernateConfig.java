@@ -1,7 +1,6 @@
 package web.config;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -26,15 +25,16 @@ public class HibernateConfig {
     @Autowired
     private Environment environment;
 
-        @Bean
-        public DataSource dataSource() {
-            DriverManagerDataSource dataSource = new DriverManagerDataSource();
-            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-            dataSource.setUrl("jdbc:mysql://localhost:3306/newpp1");
-            dataSource.setUsername("root");
-            dataSource.setPassword("q4w1e2r3");
-            return dataSource;
-        }
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/newpp1");
+        dataSource.setUsername("root");
+        dataSource.setPassword("q4w1e2r3");
+        return dataSource;
+    }
+
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
@@ -42,6 +42,7 @@ public class HibernateConfig {
         properties.put("hibernate.hbm2ddl.auto", "update"); // Добавлено свойство
         return properties;
     }
+
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
@@ -52,6 +53,7 @@ public class HibernateConfig {
 
         return emf;
     }
+
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);

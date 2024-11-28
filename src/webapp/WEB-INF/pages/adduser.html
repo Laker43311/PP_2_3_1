@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Добавить пользователя</title>
-  <meta charset="UTF-8">
+    <title>Добавить пользователя</title>
+    <meta charset="UTF-8">
 </head>
 <body>
 <h1>Добавить нового пользователя</h1>
 <form th:action="@{/users/add}" method="post">
-  <label>Имя:</label>
-  <input type="text" name="name" required /><br/>
-  <label>Фамилия:</label>
-  <input type="text" name="surname" required /><br/>
-  <button type="submit">Добавить пользователя</button>
+    <label>Имя:</label>
+    <input type="text" name="name" required/><br/>
+    <label>Фамилия:</label>
+    <input type="text" name="surname" required/><br/>
+    <button type="submit">Добавить пользователя</button>
 </form>
 <a th:href="@{/users}">Вернуться к списку пользователей</a>
 </body>
