@@ -14,7 +14,6 @@ import web.service.UserService;
 @RequestMapping("/users")
 public class UsersController {
 
-
     private UserService userService;
 
     @Autowired
@@ -24,8 +23,8 @@ public class UsersController {
     }
 
     @GetMapping
-    public String listUsers(Model model) {
-        model.addAttribute("users", userService.allUsers());
+    public String showListUsers(Model model) {
+        model.addAttribute("users", userService.showUsers());
         return "users";
     }
 

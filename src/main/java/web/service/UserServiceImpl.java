@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.dao.UserDAO;
 import web.model.User;
-
 import java.util.List;
 
 @Service
@@ -18,8 +17,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> allUsers() {
-        return userDAO.allUsers();
+    public List<User> showUsers() {
+        return userDAO.showUsers();
     }
 
     @Override
